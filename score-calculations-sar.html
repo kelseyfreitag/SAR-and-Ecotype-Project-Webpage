@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Score Calculations: SAR | SAR and Ecotype Project</title>
+  <meta name="description" content="4 Score Calculations: SAR | SAR and Ecotype Project" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Score Calculations: SAR | SAR and Ecotype Project" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Score Calculations: SAR | SAR and Ecotype Project" />
+  
+  
+  
+
+<meta name="author" content="Kelsey Freitag" />
+
+
+<meta name="date" content="2025-07-15" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="calculate-range-area-sar.html"/>
+<link rel="next" href="create-grid-10-km-x-10-km.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#resources"><i class="fa fa-check"></i><b>1.1</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="setup-sar.html"><a href="setup-sar.html"><i class="fa fa-check"></i><b>2</b> Setup: SAR</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="setup-sar.html"><a href="setup-sar.html#data-preparation"><i class="fa fa-check"></i><b>2.1</b> Data Preparation</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="calculate-range-area-sar.html"><a href="calculate-range-area-sar.html"><i class="fa fa-check"></i><b>3</b> Calculate Range Area: SAR</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="calculate-range-area-sar.html"><a href="calculate-range-area-sar.html#overview"><i class="fa fa-check"></i><b>3.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="calculate-range-area-sar.html"><a href="calculate-range-area-sar.html#load-libraries"><i class="fa fa-check"></i><b>3.1.1</b> Load Libraries</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="calculate-range-area-sar.html"><a href="calculate-range-area-sar.html#example-island-blue"><i class="fa fa-check"></i><b>3.2</b> Example: Island Blue</a></li>
+<li class="chapter" data-level="3.3" data-path="calculate-range-area-sar.html"><a href="calculate-range-area-sar.html#full-loop"><i class="fa fa-check"></i><b>3.3</b> Full Loop</a></li>
+<li class="chapter" data-level="3.4" data-path="calculate-range-area-sar.html"><a href="calculate-range-area-sar.html#outputs"><i class="fa fa-check"></i><b>3.4</b> Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="score-calculations-sar.html"><a href="score-calculations-sar.html"><i class="fa fa-check"></i><b>4</b> Score Calculations: SAR</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="score-calculations-sar.html"><a href="score-calculations-sar.html#overview-1"><i class="fa fa-check"></i><b>4.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="score-calculations-sar.html"><a href="score-calculations-sar.html#load-libraries-1"><i class="fa fa-check"></i><b>4.1.1</b> Load Libraries</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="score-calculations-sar.html"><a href="score-calculations-sar.html#calculate-sar-scores"><i class="fa fa-check"></i><b>4.2</b> Calculate SAR Scores</a></li>
+<li class="chapter" data-level="4.3" data-path="score-calculations-sar.html"><a href="score-calculations-sar.html#export-data-.csv"><i class="fa fa-check"></i><b>4.3</b> Export Data (.csv)</a></li>
+<li class="chapter" data-level="4.4" data-path="score-calculations-sar.html"><a href="score-calculations-sar.html#outputs-1"><i class="fa fa-check"></i><b>4.4</b> Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="create-grid-10-km-x-10-km.html"><a href="create-grid-10-km-x-10-km.html"><i class="fa fa-check"></i><b>5</b> Create Grid (10 km x 10 km)</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="create-grid-10-km-x-10-km.html"><a href="create-grid-10-km-x-10-km.html#overview-2"><i class="fa fa-check"></i><b>5.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="create-grid-10-km-x-10-km.html"><a href="create-grid-10-km-x-10-km.html#load-libraries-2"><i class="fa fa-check"></i><b>5.1.1</b> Load Libraries</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="create-grid-10-km-x-10-km.html"><a href="create-grid-10-km-x-10-km.html#create-grid"><i class="fa fa-check"></i><b>5.2</b> Create Grid</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="create-grid-10-km-x-10-km.html"><a href="create-grid-10-km-x-10-km.html#load-map-of-canada"><i class="fa fa-check"></i><b>5.2.1</b> Load Map of Canada</a></li>
+<li class="chapter" data-level="5.2.2" data-path="create-grid-10-km-x-10-km.html"><a href="create-grid-10-km-x-10-km.html#create-grid-functions"><i class="fa fa-check"></i><b>5.2.2</b> Create Grid Functions</a></li>
+<li class="chapter" data-level="5.2.3" data-path="create-grid-10-km-x-10-km.html"><a href="create-grid-10-km-x-10-km.html#create-grids"><i class="fa fa-check"></i><b>5.2.3</b> Create Grids</a></li>
+<li class="chapter" data-level="5.2.4" data-path="create-grid-10-km-x-10-km.html"><a href="create-grid-10-km-x-10-km.html#clip-grid-to-canada"><i class="fa fa-check"></i><b>5.2.4</b> Clip Grid to Canada</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="create-grid-10-km-x-10-km.html"><a href="create-grid-10-km-x-10-km.html#visualize-grid-new-brunswick-example"><i class="fa fa-check"></i><b>5.3</b> Visualize Grid: New Brunswick Example</a></li>
+<li class="chapter" data-level="5.4" data-path="create-grid-10-km-x-10-km.html"><a href="create-grid-10-km-x-10-km.html#export-grid"><i class="fa fa-check"></i><b>5.4</b> Export Grid</a></li>
+<li class="chapter" data-level="5.5" data-path="create-grid-10-km-x-10-km.html"><a href="create-grid-10-km-x-10-km.html#outputs-2"><i class="fa fa-check"></i><b>5.5</b> Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="loop-code.html"><a href="loop-code.html"><i class="fa fa-check"></i><b>6</b> Loop Code</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="loop-code.html"><a href="loop-code.html#overview-3"><i class="fa fa-check"></i><b>6.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="loop-code.html"><a href="loop-code.html#load-libraries-3"><i class="fa fa-check"></i><b>6.1.1</b> Load Libraries</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="loop-code.html"><a href="loop-code.html#copy-species-raster-files-optional"><i class="fa fa-check"></i><b>6.2</b> Copy Species Raster Files (Optional)</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="loop-code.html"><a href="loop-code.html#assign-folders"><i class="fa fa-check"></i><b>6.2.1</b> Assign Folders</a></li>
+<li class="chapter" data-level="6.2.2" data-path="loop-code.html"><a href="loop-code.html#copy-files"><i class="fa fa-check"></i><b>6.2.2</b> Copy Files</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="loop-code.html"><a href="loop-code.html#sample-loop"><i class="fa fa-check"></i><b>6.3</b> Sample Loop</a></li>
+<li class="chapter" data-level="6.4" data-path="loop-code.html"><a href="loop-code.html#sample-plot"><i class="fa fa-check"></i><b>6.4</b> Sample Plot</a></li>
+<li class="chapter" data-level="6.5" data-path="loop-code.html"><a href="loop-code.html#summing-scores-per-grid-cell"><i class="fa fa-check"></i><b>6.5</b> Summing Scores per Grid Cell</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="loop-code.html"><a href="loop-code.html#load-necessary-files"><i class="fa fa-check"></i><b>6.5.1</b> Load Necessary Files</a></li>
+<li class="chapter" data-level="6.5.2" data-path="loop-code.html"><a href="loop-code.html#prepare-data"><i class="fa fa-check"></i><b>6.5.2</b> Prepare Data</a></li>
+<li class="chapter" data-level="6.5.3" data-path="loop-code.html"><a href="loop-code.html#sum-data"><i class="fa fa-check"></i><b>6.5.3</b> Sum Data</a></li>
+<li class="chapter" data-level="6.5.4" data-path="loop-code.html"><a href="loop-code.html#example-summed-scores-table"><i class="fa fa-check"></i><b>6.5.4</b> Example Summed Scores Table</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="loop-code.html"><a href="loop-code.html#save-data"><i class="fa fa-check"></i><b>6.6</b> Save Data</a></li>
+<li class="chapter" data-level="6.7" data-path="loop-code.html"><a href="loop-code.html#outputs-3"><i class="fa fa-check"></i><b>6.7</b> Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html"><i class="fa fa-check"></i><b>7</b> Mapping: Static and Interactive</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#overview-static-maps"><i class="fa fa-check"></i><b>7.1</b> Overview: Static Maps</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#load-libraries-4"><i class="fa fa-check"></i><b>7.1.1</b> Load Libraries</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#prepare-and-clean-data"><i class="fa fa-check"></i><b>7.2</b> Prepare and Clean Data</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#read-in-file"><i class="fa fa-check"></i><b>7.2.1</b> Read in File</a></li>
+<li class="chapter" data-level="7.2.2" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#clean-data-remove-eskimo-curlew"><i class="fa fa-check"></i><b>7.2.2</b> Clean Data: Remove Eskimo Curlew</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#map-all-species-100-km²"><i class="fa fa-check"></i><b>7.3</b> Map: All Species (100 km²)</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#prepare-data-and-log-scores"><i class="fa fa-check"></i><b>7.3.1</b> Prepare Data and Log Scores</a></li>
+<li class="chapter" data-level="7.3.2" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#plot-at-100km²"><i class="fa fa-check"></i><b>7.3.2</b> Plot at 100km²</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#map-all-species-1-km²"><i class="fa fa-check"></i><b>7.4</b> Map: All Species (1 km²)</a></li>
+<li class="chapter" data-level="7.5" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#maps-taxon-specific-1-km²"><i class="fa fa-check"></i><b>7.5</b> Maps: Taxon-Specific (1 km²)</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#birds-full-code-and-map"><i class="fa fa-check"></i><b>7.5.1</b> Birds: Full Code and Map</a></li>
+<li class="chapter" data-level="7.5.2" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#other-taxa-maps"><i class="fa fa-check"></i><b>7.5.2</b> Other Taxa: Maps</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#outputs-static-maps"><i class="fa fa-check"></i><b>7.6</b> Outputs: Static Maps</a></li>
+<li class="chapter" data-level="7.7" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#interactive-maps-overview"><i class="fa fa-check"></i><b>7.7</b> Interactive Maps Overview</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#input-files"><i class="fa fa-check"></i><b>7.7.1</b> Input Files</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#interactive-map-all-species"><i class="fa fa-check"></i><b>7.8</b> Interactive Map: All Species</a>
+<ul>
+<li class="chapter" data-level="7.8.1" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#load-libraries-5"><i class="fa fa-check"></i><b>7.8.1</b> Load Libraries</a></li>
+<li class="chapter" data-level="7.8.2" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#read-in-files"><i class="fa fa-check"></i><b>7.8.2</b> Read in Files</a></li>
+<li class="chapter" data-level="7.8.3" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#data-preperation"><i class="fa fa-check"></i><b>7.8.3</b> Data Preperation</a></li>
+<li class="chapter" data-level="7.8.4" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#create-leaflet"><i class="fa fa-check"></i><b>7.8.4</b> Create Leaflet</a></li>
+<li class="chapter" data-level="7.8.5" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#save-leaflet-as-.html"><i class="fa fa-check"></i><b>7.8.5</b> Save Leaflet as .html</a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#interactive-map-taxon-toggles"><i class="fa fa-check"></i><b>7.9</b> Interactive Map: Taxon Toggles</a>
+<ul>
+<li class="chapter" data-level="7.9.1" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#define-taxa-of-interest"><i class="fa fa-check"></i><b>7.9.1</b> Define Taxa of Interest</a></li>
+<li class="chapter" data-level="7.9.2" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#loop-through-taxa"><i class="fa fa-check"></i><b>7.9.2</b> Loop Through Taxa</a></li>
+<li class="chapter" data-level="7.9.3" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#layer-options"><i class="fa fa-check"></i><b>7.9.3</b> Layer Options</a></li>
+<li class="chapter" data-level="7.9.4" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#save"><i class="fa fa-check"></i><b>7.9.4</b> Save</a></li>
+</ul></li>
+<li class="chapter" data-level="7.10" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#outputs-4"><i class="fa fa-check"></i><b>7.10</b> Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html"><i class="fa fa-check"></i><b>8</b> Score Calculations: Ecotypes</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#overview-4"><i class="fa fa-check"></i><b>8.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#load-libraries-6"><i class="fa fa-check"></i><b>8.1.1</b> Load Libraries</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#calculate-ecozone-scores"><i class="fa fa-check"></i><b>8.2</b> Calculate Ecozone Scores</a></li>
+<li class="chapter" data-level="8.3" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#export-data-.csv-1"><i class="fa fa-check"></i><b>8.3</b> Export Data (.csv)</a></li>
+<li class="chapter" data-level="8.4" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#outputs-5"><i class="fa fa-check"></i><b>8.4</b> Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="ecozone-and-ecotype-raster-generation.html"><a href="ecozone-and-ecotype-raster-generation.html"><i class="fa fa-check"></i><b>9</b> Ecozone and Ecotype Raster Generation</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="ecozone-and-ecotype-raster-generation.html"><a href="ecozone-and-ecotype-raster-generation.html#overview-ecozone-loop"><i class="fa fa-check"></i><b>9.1</b> Overview: Ecozone Loop</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="ecozone-and-ecotype-raster-generation.html"><a href="ecozone-and-ecotype-raster-generation.html#load-libraries-7"><i class="fa fa-check"></i><b>9.1.1</b> Load Libraries</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="ecozone-and-ecotype-raster-generation.html"><a href="ecozone-and-ecotype-raster-generation.html#ecozone-rasters"><i class="fa fa-check"></i><b>9.2</b> Ecozone Rasters</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="ecozone-and-ecotype-raster-generation.html"><a href="ecozone-and-ecotype-raster-generation.html#read-files-and-prepare-data"><i class="fa fa-check"></i><b>9.2.1</b> Read Files and Prepare Data</a></li>
+<li class="chapter" data-level="9.2.2" data-path="ecozone-and-ecotype-raster-generation.html"><a href="ecozone-and-ecotype-raster-generation.html#ecozone-masking-loop"><i class="fa fa-check"></i><b>9.2.2</b> Ecozone Masking Loop</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="ecozone-and-ecotype-raster-generation.html"><a href="ecozone-and-ecotype-raster-generation.html#outputs-6"><i class="fa fa-check"></i><b>9.3</b> Outputs</a></li>
+<li class="chapter" data-level="9.4" data-path="ecozone-and-ecotype-raster-generation.html"><a href="ecozone-and-ecotype-raster-generation.html#overview-ecotype-loop"><i class="fa fa-check"></i><b>9.4</b> Overview: Ecotype Loop</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="ecozone-and-ecotype-raster-generation.html"><a href="ecozone-and-ecotype-raster-generation.html#load-libraries-8"><i class="fa fa-check"></i><b>9.4.1</b> Load Libraries</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="ecozone-and-ecotype-raster-generation.html"><a href="ecozone-and-ecotype-raster-generation.html#ecotype-rasters"><i class="fa fa-check"></i><b>9.5</b> Ecotype Rasters</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="ecozone-and-ecotype-raster-generation.html"><a href="ecozone-and-ecotype-raster-generation.html#data-preparation-and-file-loading"><i class="fa fa-check"></i><b>9.5.1</b> Data Preparation and File Loading</a></li>
+<li class="chapter" data-level="9.5.2" data-path="ecozone-and-ecotype-raster-generation.html"><a href="ecozone-and-ecotype-raster-generation.html#loop-through-ecotypes"><i class="fa fa-check"></i><b>9.5.2</b> Loop Through Ecotypes</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="ecozone-and-ecotype-raster-generation.html"><a href="ecozone-and-ecotype-raster-generation.html#outputs-7"><i class="fa fa-check"></i><b>9.6</b> Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="ecozone-mosaic.html"><a href="ecozone-mosaic.html"><i class="fa fa-check"></i><b>10</b> Ecozone Mosaic</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="ecozone-mosaic.html"><a href="ecozone-mosaic.html#overview-5"><i class="fa fa-check"></i><b>10.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="ecozone-mosaic.html"><a href="ecozone-mosaic.html#load-libraries-9"><i class="fa fa-check"></i><b>10.1.1</b> Load Libraries</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="ecozone-mosaic.html"><a href="ecozone-mosaic.html#mosaic-loop"><i class="fa fa-check"></i><b>10.2</b> Mosaic Loop</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="ecozone-mosaic.html"><a href="ecozone-mosaic.html#data-preparation-1"><i class="fa fa-check"></i><b>10.2.1</b> Data Preparation</a></li>
+<li class="chapter" data-level="10.2.2" data-path="ecozone-mosaic.html"><a href="ecozone-mosaic.html#loop-through-and-join-ecozones"><i class="fa fa-check"></i><b>10.2.2</b> Loop Through and Join Ecozones</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="ecozone-mosaic.html"><a href="ecozone-mosaic.html#log-scores"><i class="fa fa-check"></i><b>10.3</b> Log Scores</a></li>
+<li class="chapter" data-level="10.4" data-path="ecozone-mosaic.html"><a href="ecozone-mosaic.html#export-data-.csv-2"><i class="fa fa-check"></i><b>10.4</b> Export Data (.csv)</a></li>
+<li class="chapter" data-level="10.5" data-path="ecozone-mosaic.html"><a href="ecozone-mosaic.html#outputs-8"><i class="fa fa-check"></i><b>10.5</b> Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="mapping-ecotypes.html"><a href="mapping-ecotypes.html"><i class="fa fa-check"></i><b>11</b> Mapping: Ecotypes</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="mapping-ecotypes.html"><a href="mapping-ecotypes.html#overview-6"><i class="fa fa-check"></i><b>11.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="mapping-ecotypes.html"><a href="mapping-ecotypes.html#load-libraries-10"><i class="fa fa-check"></i><b>11.1.1</b> Load Libraries</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="mapping-ecotypes.html"><a href="mapping-ecotypes.html#national-ecotype-map"><i class="fa fa-check"></i><b>11.2</b> National Ecotype Map</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="mapping-ecotypes.html"><a href="mapping-ecotypes.html#base-plot"><i class="fa fa-check"></i><b>11.2.1</b> Base Plot</a></li>
+<li class="chapter" data-level="11.2.2" data-path="mapping-ecotypes.html"><a href="mapping-ecotypes.html#add-canada-or-ecozone-outline"><i class="fa fa-check"></i><b>11.2.2</b> Add Canada or Ecozone Outline</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="mapping-ecotypes.html"><a href="mapping-ecotypes.html#ecotype-mapping-individual-ecotypes"><i class="fa fa-check"></i><b>11.3</b> Ecotype Mapping: Individual Ecotypes</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="mapping-ecotypes.html"><a href="mapping-ecotypes.html#function-for-pretty-breaks"><i class="fa fa-check"></i><b>11.3.1</b> Function for Pretty Breaks</a></li>
+<li class="chapter" data-level="11.3.2" data-path="mapping-ecotypes.html"><a href="mapping-ecotypes.html#sample-code-barren-lands"><i class="fa fa-check"></i><b>11.3.2</b> Sample Code: Barren Lands</a></li>
+<li class="chapter" data-level="11.3.3" data-path="mapping-ecotypes.html"><a href="mapping-ecotypes.html#other-ecotypes-maps"><i class="fa fa-check"></i><b>11.3.3</b> Other Ecotypes: Maps</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="mapping-ecotypes.html"><a href="mapping-ecotypes.html#outputs-9"><i class="fa fa-check"></i><b>11.4</b> Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="mapping-ecozones.html"><a href="mapping-ecozones.html"><i class="fa fa-check"></i><b>12</b> Mapping: Ecozones</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="mapping-ecozones.html"><a href="mapping-ecozones.html#overview-7"><i class="fa fa-check"></i><b>12.1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="mapping-ecozones.html"><a href="mapping-ecozones.html#load-libraries-11"><i class="fa fa-check"></i><b>12.1.1</b> Load Libraries</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="mapping-ecozones.html"><a href="mapping-ecozones.html#example-code-arctic-cordillera"><i class="fa fa-check"></i><b>12.2</b> Example Code: Arctic Cordillera</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="mapping-ecozones.html"><a href="mapping-ecozones.html#function-for-pretty-breaks-1"><i class="fa fa-check"></i><b>12.2.1</b> Function for Pretty Breaks</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="mapping-ecozones.html"><a href="mapping-ecozones.html#all-ecozones"><i class="fa fa-check"></i><b>12.3</b> All Ecozones</a></li>
+<li class="chapter" data-level="12.4" data-path="mapping-ecozones.html"><a href="mapping-ecozones.html#outputs-10"><i class="fa fa-check"></i><b>12.4</b> Outputs</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">SAR and Ecotype Project</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="score-calculations-sar" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Score Calculations: SAR<a href="score-calculations-sar.html#score-calculations-sar" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="overview-1" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Overview<a href="score-calculations-sar.html#overview-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The scoring process for SAR involved two steps:</p>
+<ol style="list-style-type: decimal">
+<li>Binning EOO values into predefined categories</li>
+<li>Calculating species‑level scores using the formula outlined below:</li>
+</ol>
+<p><span class="math display">\[
+\text{Score} = \left(\frac{1,000,000,000}{\text{Number of SAR}}\right) \times \left(\frac{\text{Project area (km}^2)}{\text{Binned EOO}}\right)
+\]</span></p>
+<p>Where:</p>
+<ul>
+<li>Number of SAR: 838 (at the time of project start)</li>
+<li>Project area: 100 km² (10 km × 10 km grid cell)</li>
+<li>Binned EOO: species-specific value based on EOO binning</li>
+</ul>
+<p><strong>Inputs</strong></p>
+<ul>
+<li><code>data/Master_list_SAR.csv</code></li>
+</ul>
+<div id="load-libraries-1" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Load Libraries<a href="score-calculations-sar.html#load-libraries-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="score-calculations-sar.html#cb5-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+</div>
+</div>
+<div id="calculate-sar-scores" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Calculate SAR Scores<a href="score-calculations-sar.html#calculate-sar-scores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="score-calculations-sar.html#cb6-1" tabindex="-1"></a><span class="co"># Read in master SAR list</span></span>
+<span id="cb6-2"><a href="score-calculations-sar.html#cb6-2" tabindex="-1"></a><span class="co"># Master SAR list contains SAR, EOOs, Binned EOOs, Taxon, SAR Status, Range Map ID, and more</span></span>
+<span id="cb6-3"><a href="score-calculations-sar.html#cb6-3" tabindex="-1"></a>Master_list <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/Master_list_SAR.csv&quot;</span>)</span>
+<span id="cb6-4"><a href="score-calculations-sar.html#cb6-4" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="score-calculations-sar.html#cb6-5" tabindex="-1"></a><span class="co"># Set bins and bin EOOs</span></span>
+<span id="cb6-6"><a href="score-calculations-sar.html#cb6-6" tabindex="-1"></a>SARrange <span class="ot">&lt;-</span> Master_list <span class="sc">%&gt;%</span></span>
+<span id="cb6-7"><a href="score-calculations-sar.html#cb6-7" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">EOO_binned =</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(<span class="fu">cut</span>(EOO,</span>
+<span id="cb6-8"><a href="score-calculations-sar.html#cb6-8" tabindex="-1"></a>            <span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">5000</span>, <span class="dv">20000</span>, <span class="dv">130000</span>, <span class="dv">100000000</span>),</span>
+<span id="cb6-9"><a href="score-calculations-sar.html#cb6-9" tabindex="-1"></a>            <span class="at">right =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb6-10"><a href="score-calculations-sar.html#cb6-10" tabindex="-1"></a>            <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">2500</span>, <span class="dv">12500</span>, <span class="dv">75000</span>, <span class="dv">130000</span>)))))</span>
+<span id="cb6-11"><a href="score-calculations-sar.html#cb6-11" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="score-calculations-sar.html#cb6-12" tabindex="-1"></a><span class="co"># Calculate scores using binned EOOs</span></span>
+<span id="cb6-13"><a href="score-calculations-sar.html#cb6-13" tabindex="-1"></a><span class="co"># Number of SAR at time of project was 838</span></span>
+<span id="cb6-14"><a href="score-calculations-sar.html#cb6-14" tabindex="-1"></a><span class="co"># Project size was set to 100km2 to match grid cell size</span></span>
+<span id="cb6-15"><a href="score-calculations-sar.html#cb6-15" tabindex="-1"></a>SARrangeScore <span class="ot">&lt;-</span> SARrange <span class="sc">%&gt;%</span></span>
+<span id="cb6-16"><a href="score-calculations-sar.html#cb6-16" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Score =</span> (<span class="fl">1e9</span> <span class="sc">/</span> <span class="dv">838</span>) <span class="sc">*</span> (<span class="dv">100</span> <span class="sc">/</span> EOO_binned))</span></code></pre></div>
+</div>
+<div id="export-data-.csv" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Export Data (.csv)<a href="score-calculations-sar.html#export-data-.csv" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="score-calculations-sar.html#cb7-1" tabindex="-1"></a><span class="co"># Write .csv file with scores</span></span>
+<span id="cb7-2"><a href="score-calculations-sar.html#cb7-2" tabindex="-1"></a><span class="fu">write.csv</span>(SARrangeScore, <span class="st">&quot;outputs/SAR_Scores.csv&quot;</span>)</span></code></pre></div>
+</div>
+<div id="outputs-1" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Outputs<a href="score-calculations-sar.html#outputs-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><code>outputs/SAR_Scores.csv</code></li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="calculate-range-area-sar.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="create-grid-10-km-x-10-km.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
