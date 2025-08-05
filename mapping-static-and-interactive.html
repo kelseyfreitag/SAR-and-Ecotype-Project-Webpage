@@ -254,7 +254,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="8.1.1" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#load-libraries-6"><i class="fa fa-check"></i><b>8.1.1</b> Load Libraries</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#calculate-ecozone-scores"><i class="fa fa-check"></i><b>8.2</b> Calculate Ecozone Scores</a></li>
+<li class="chapter" data-level="8.2" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#calculate-ecotype-scores"><i class="fa fa-check"></i><b>8.2</b> Calculate Ecotype Scores</a></li>
 <li class="chapter" data-level="8.3" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#export-data-.csv-1"><i class="fa fa-check"></i><b>8.3</b> Export Data (.csv)</a></li>
 <li class="chapter" data-level="8.4" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#outputs-5"><i class="fa fa-check"></i><b>8.4</b> Outputs</a></li>
 </ul></li>
@@ -375,7 +375,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">7.2</span> Prepare and Clean Data<a href="mapping-static-and-interactive.html#prepare-and-clean-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="read-in-file" class="section level3 hasAnchor" number="7.2.1">
 <h3><span class="header-section-number">7.2.1</span> Read in File<a href="mapping-static-and-interactive.html#read-in-file" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="mapping-static-and-interactive.html#cb24-1" tabindex="-1"></a><span class="do">## Load in grid scores and master data</span></span>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="mapping-static-and-interactive.html#cb24-1" tabindex="-1"></a><span class="co"># Load in grid scores and master data</span></span>
 <span id="cb24-2"><a href="mapping-static-and-interactive.html#cb24-2" tabindex="-1"></a>combined <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/output_grid_sf_score.rds&quot;</span>)</span>
 <span id="cb24-3"><a href="mapping-static-and-interactive.html#cb24-3" tabindex="-1"></a>species_master <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/Master_list_SAR.csv&quot;</span>)</span></code></pre></div>
 </div>
@@ -589,7 +589,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="other-taxa-maps" class="section level3 hasAnchor" number="7.5.2">
 <h3><span class="header-section-number">7.5.2</span> Other Taxa: Maps<a href="mapping-static-and-interactive.html#other-taxa-maps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Following the same workflow as the Bird example, static maps were generated for all remaining taxa. Each map shows log₁₀-scaled bioindicator scores per 1km².</p>
+<p>Following the same workflow as the bird example, static maps were generated for all remaining taxa. Each map shows log₁₀-scaled bioindicator scores per 1km².</p>
 <p><img src="SAR_Project_files/figure-html/All_Taxa_mapping-1.png" width="672" /><img src="SAR_Project_files/figure-html/All_Taxa_mapping-2.png" width="672" /><img src="SAR_Project_files/figure-html/All_Taxa_mapping-3.png" width="672" /><img src="SAR_Project_files/figure-html/All_Taxa_mapping-4.png" width="672" /><img src="SAR_Project_files/figure-html/All_Taxa_mapping-5.png" width="672" /><img src="SAR_Project_files/figure-html/All_Taxa_mapping-6.png" width="672" /><img src="SAR_Project_files/figure-html/All_Taxa_mapping-7.png" width="672" /><img src="SAR_Project_files/figure-html/All_Taxa_mapping-8.png" width="672" /></p>
 </div>
 </div>
@@ -613,12 +613,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="interactive-maps-overview" class="section level2 hasAnchor" number="7.7">
 <h2><span class="header-section-number">7.7</span> Interactive Maps Overview<a href="mapping-static-and-interactive.html#interactive-maps-overview" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This section outlines the creation of interactive maps displaying the distribution of SAR bioindicator scores across Canada. The grid resolution is 10 km x 10 km (100 km²). All scores are calculated over 100 km² grid cells and have been scaled to 1 km².</p>
-<p><strong>Note:</strong> The interactive Leaflet maps are too large to render directly in this RMarkdown document. They are available for viewing and download on <a href="https://github.com/YourRepoHere">GitHub</a>.</p>
+<p><strong>Note:</strong> The interactive Leaflet maps are too large to render directly in this RMarkdown document. They are available for download on <a href="https://www.dropbox.com/scl/fo/b9h9979b1o1p5wtz65g3s/AF4XeK-H9SBG_fsRapYWp3U?rlkey=egx4br9shk7yvrihmewd2larx&amp;st=ayyujbx2&amp;dl=0">Dropbox</a>.</p>
 <div id="input-files" class="section level3 hasAnchor" number="7.7.1">
 <h3><span class="header-section-number">7.7.1</span> Input Files<a href="mapping-static-and-interactive.html#input-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li><code>output_grid_sf_score.rds</code>: Spatial data with SAR scores</li>
-<li><code>Master_list_SAR.csv</code>: Taxonomic classification of SAR</li>
+<li><code>outputs/output_grid_sf_score.rds</code>: Spatial data with SAR scores</li>
+<li><code>data/Master_list_SAR.csv</code>: Taxonomic classification of SAR</li>
 </ul>
 </div>
 </div>
@@ -633,7 +633,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="read-in-files" class="section level3 hasAnchor" number="7.8.2">
 <h3><span class="header-section-number">7.8.2</span> Read in Files<a href="mapping-static-and-interactive.html#read-in-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="mapping-static-and-interactive.html#cb31-1" tabindex="-1"></a><span class="do">## Load in grid scores and master data</span></span>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="mapping-static-and-interactive.html#cb31-1" tabindex="-1"></a><span class="co"># Load in grid scores and master data</span></span>
 <span id="cb31-2"><a href="mapping-static-and-interactive.html#cb31-2" tabindex="-1"></a>combined <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/output_grid_sf_score.rds&quot;</span>)</span>
 <span id="cb31-3"><a href="mapping-static-and-interactive.html#cb31-3" tabindex="-1"></a>species_master <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/Master_list_SAR.csv&quot;</span>)</span></code></pre></div>
 </div>
@@ -675,43 +675,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb32-34"><a href="mapping-static-and-interactive.html#cb32-34" tabindex="-1"></a>leaflet_map <span class="ot">&lt;-</span> <span class="fu">leaflet</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb32-35"><a href="mapping-static-and-interactive.html#cb32-35" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(providers<span class="sc">$</span>CartoDB.Positron)</span>
 <span id="cb32-36"><a href="mapping-static-and-interactive.html#cb32-36" tabindex="-1"></a></span>
-<span id="cb32-37"><a href="mapping-static-and-interactive.html#cb32-37" tabindex="-1"></a><span class="co"># List of taxa to include (limit for performance)</span></span>
-<span id="cb32-38"><a href="mapping-static-and-interactive.html#cb32-38" tabindex="-1"></a>taxon_types <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Mammals&quot;</span>, <span class="st">&quot;Birds&quot;</span>, <span class="st">&quot;Reptiles&quot;</span>, <span class="st">&quot;Amphibians&quot;</span>, <span class="st">&quot;Vascular Plants&quot;</span>)</span>
-<span id="cb32-39"><a href="mapping-static-and-interactive.html#cb32-39" tabindex="-1"></a></span>
-<span id="cb32-40"><a href="mapping-static-and-interactive.html#cb32-40" tabindex="-1"></a><span class="co"># Add &quot;All Species&quot; layer</span></span>
-<span id="cb32-41"><a href="mapping-static-and-interactive.html#cb32-41" tabindex="-1"></a>grid_all_species <span class="ot">&lt;-</span> combined <span class="sc">%&gt;%</span> </span>
-<span id="cb32-42"><a href="mapping-static-and-interactive.html#cb32-42" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">score =</span> <span class="fu">rowSums</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">&quot;value_&quot;</span>)), <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb32-43"><a href="mapping-static-and-interactive.html#cb32-43" tabindex="-1"></a>  <span class="fu">filter</span>(score <span class="sc">&gt;</span> <span class="dv">0</span>)  <span class="co"># Drop empty cells</span></span>
-<span id="cb32-44"><a href="mapping-static-and-interactive.html#cb32-44" tabindex="-1"></a></span>
-<span id="cb32-45"><a href="mapping-static-and-interactive.html#cb32-45" tabindex="-1"></a><span class="co"># Create popup info for All Species layer</span></span>
-<span id="cb32-46"><a href="mapping-static-and-interactive.html#cb32-46" tabindex="-1"></a>grid_all_species <span class="ot">&lt;-</span> grid_all_species <span class="sc">%&gt;%</span></span>
-<span id="cb32-47"><a href="mapping-static-and-interactive.html#cb32-47" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb32-48"><a href="mapping-static-and-interactive.html#cb32-48" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">popup_info =</span> {</span>
-<span id="cb32-49"><a href="mapping-static-and-interactive.html#cb32-49" tabindex="-1"></a>    species_names <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
-<span id="cb32-50"><a href="mapping-static-and-interactive.html#cb32-50" tabindex="-1"></a>    <span class="cf">for</span> (species_column <span class="cf">in</span> species_columns) {</span>
-<span id="cb32-51"><a href="mapping-static-and-interactive.html#cb32-51" tabindex="-1"></a>      raw_name <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;^presence_&quot;</span>, <span class="st">&quot;&quot;</span>, species_column)</span>
-<span id="cb32-52"><a href="mapping-static-and-interactive.html#cb32-52" tabindex="-1"></a>      <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(<span class="fu">get</span>(species_column)) <span class="sc">&amp;&amp;</span> <span class="fu">get</span>(species_column) <span class="sc">&amp;&amp;</span> raw_name <span class="sc">%in%</span> <span class="fu">names</span>(lookup_table)) {</span>
-<span id="cb32-53"><a href="mapping-static-and-interactive.html#cb32-53" tabindex="-1"></a>        species_names <span class="ot">&lt;-</span> <span class="fu">c</span>(species_names, lookup_table[raw_name])</span>
-<span id="cb32-54"><a href="mapping-static-and-interactive.html#cb32-54" tabindex="-1"></a>      }</span>
-<span id="cb32-55"><a href="mapping-static-and-interactive.html#cb32-55" tabindex="-1"></a>    }</span>
-<span id="cb32-56"><a href="mapping-static-and-interactive.html#cb32-56" tabindex="-1"></a>    species_html <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">length</span>(species_names) <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb32-57"><a href="mapping-static-and-interactive.html#cb32-57" tabindex="-1"></a>      <span class="st">&quot;No species present&quot;</span></span>
-<span id="cb32-58"><a href="mapping-static-and-interactive.html#cb32-58" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
-<span id="cb32-59"><a href="mapping-static-and-interactive.html#cb32-59" tabindex="-1"></a>      <span class="fu">paste</span>(species_names, <span class="at">collapse =</span> <span class="st">&quot;&lt;br&gt;&quot;</span>)</span>
-<span id="cb32-60"><a href="mapping-static-and-interactive.html#cb32-60" tabindex="-1"></a>    }</span>
-<span id="cb32-61"><a href="mapping-static-and-interactive.html#cb32-61" tabindex="-1"></a>    <span class="fu">paste0</span>(</span>
-<span id="cb32-62"><a href="mapping-static-and-interactive.html#cb32-62" tabindex="-1"></a>      <span class="st">&quot;&lt;b&gt;All Species Score (per km²):&lt;/b&gt; &quot;</span>, <span class="fu">round</span>(score, <span class="dv">2</span>), <span class="st">&quot;&lt;br&gt;&lt;br&gt;&quot;</span>,</span>
-<span id="cb32-63"><a href="mapping-static-and-interactive.html#cb32-63" tabindex="-1"></a>      <span class="st">&quot;&lt;b&gt;Species Present:&lt;/b&gt;&lt;br&gt;&quot;</span>, species_html</span>
-<span id="cb32-64"><a href="mapping-static-and-interactive.html#cb32-64" tabindex="-1"></a>    )</span>
-<span id="cb32-65"><a href="mapping-static-and-interactive.html#cb32-65" tabindex="-1"></a>  }) <span class="sc">%&gt;%</span></span>
-<span id="cb32-66"><a href="mapping-static-and-interactive.html#cb32-66" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb32-67"><a href="mapping-static-and-interactive.html#cb32-67" tabindex="-1"></a></span>
-<span id="cb32-68"><a href="mapping-static-and-interactive.html#cb32-68" tabindex="-1"></a><span class="co"># Color palette for All Species</span></span>
-<span id="cb32-69"><a href="mapping-static-and-interactive.html#cb32-69" tabindex="-1"></a>pal_all_species <span class="ot">&lt;-</span> <span class="fu">colorNumeric</span>(</span>
-<span id="cb32-70"><a href="mapping-static-and-interactive.html#cb32-70" tabindex="-1"></a>  <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">&quot;#fee485&quot;</span>, <span class="st">&quot;#ed4801&quot;</span>, <span class="st">&quot;#860a03&quot;</span>, <span class="st">&quot;#221c05&quot;</span>),</span>
-<span id="cb32-71"><a href="mapping-static-and-interactive.html#cb32-71" tabindex="-1"></a>  <span class="at">domain =</span> <span class="fu">range</span>(grid_all_species<span class="sc">$</span>score, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb32-72"><a href="mapping-static-and-interactive.html#cb32-72" tabindex="-1"></a>  <span class="at">na.color =</span> <span class="st">&quot;grey&quot;</span></span>
-<span id="cb32-73"><a href="mapping-static-and-interactive.html#cb32-73" tabindex="-1"></a>)</span></code></pre></div>
+<span id="cb32-37"><a href="mapping-static-and-interactive.html#cb32-37" tabindex="-1"></a><span class="co"># Add &quot;All Species&quot; layer</span></span>
+<span id="cb32-38"><a href="mapping-static-and-interactive.html#cb32-38" tabindex="-1"></a>grid_all_species <span class="ot">&lt;-</span> combined <span class="sc">%&gt;%</span> </span>
+<span id="cb32-39"><a href="mapping-static-and-interactive.html#cb32-39" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">score =</span> <span class="fu">rowSums</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">&quot;value_&quot;</span>)), <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-40"><a href="mapping-static-and-interactive.html#cb32-40" tabindex="-1"></a>  <span class="fu">filter</span>(score <span class="sc">&gt;</span> <span class="dv">0</span>)  <span class="co"># Drop empty cells</span></span>
+<span id="cb32-41"><a href="mapping-static-and-interactive.html#cb32-41" tabindex="-1"></a></span>
+<span id="cb32-42"><a href="mapping-static-and-interactive.html#cb32-42" tabindex="-1"></a><span class="co"># Create popup info for All Species layer</span></span>
+<span id="cb32-43"><a href="mapping-static-and-interactive.html#cb32-43" tabindex="-1"></a>grid_all_species <span class="ot">&lt;-</span> grid_all_species <span class="sc">%&gt;%</span></span>
+<span id="cb32-44"><a href="mapping-static-and-interactive.html#cb32-44" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb32-45"><a href="mapping-static-and-interactive.html#cb32-45" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">popup_info =</span> {</span>
+<span id="cb32-46"><a href="mapping-static-and-interactive.html#cb32-46" tabindex="-1"></a>    species_names <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb32-47"><a href="mapping-static-and-interactive.html#cb32-47" tabindex="-1"></a>    <span class="cf">for</span> (species_column <span class="cf">in</span> species_columns) {</span>
+<span id="cb32-48"><a href="mapping-static-and-interactive.html#cb32-48" tabindex="-1"></a>      raw_name <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;^presence_&quot;</span>, <span class="st">&quot;&quot;</span>, species_column)</span>
+<span id="cb32-49"><a href="mapping-static-and-interactive.html#cb32-49" tabindex="-1"></a>      <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(<span class="fu">get</span>(species_column)) <span class="sc">&amp;&amp;</span> <span class="fu">get</span>(species_column) <span class="sc">&amp;&amp;</span> raw_name <span class="sc">%in%</span> <span class="fu">names</span>(lookup_table)) {</span>
+<span id="cb32-50"><a href="mapping-static-and-interactive.html#cb32-50" tabindex="-1"></a>        species_names <span class="ot">&lt;-</span> <span class="fu">c</span>(species_names, lookup_table[raw_name])</span>
+<span id="cb32-51"><a href="mapping-static-and-interactive.html#cb32-51" tabindex="-1"></a>      }</span>
+<span id="cb32-52"><a href="mapping-static-and-interactive.html#cb32-52" tabindex="-1"></a>    }</span>
+<span id="cb32-53"><a href="mapping-static-and-interactive.html#cb32-53" tabindex="-1"></a>    species_html <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">length</span>(species_names) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb32-54"><a href="mapping-static-and-interactive.html#cb32-54" tabindex="-1"></a>      <span class="st">&quot;No species present&quot;</span></span>
+<span id="cb32-55"><a href="mapping-static-and-interactive.html#cb32-55" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb32-56"><a href="mapping-static-and-interactive.html#cb32-56" tabindex="-1"></a>      <span class="fu">paste</span>(species_names, <span class="at">collapse =</span> <span class="st">&quot;&lt;br&gt;&quot;</span>)</span>
+<span id="cb32-57"><a href="mapping-static-and-interactive.html#cb32-57" tabindex="-1"></a>    }</span>
+<span id="cb32-58"><a href="mapping-static-and-interactive.html#cb32-58" tabindex="-1"></a>    <span class="fu">paste0</span>(</span>
+<span id="cb32-59"><a href="mapping-static-and-interactive.html#cb32-59" tabindex="-1"></a>      <span class="st">&quot;&lt;b&gt;All Species Score (per km²):&lt;/b&gt; &quot;</span>, <span class="fu">round</span>(score, <span class="dv">2</span>), <span class="st">&quot;&lt;br&gt;&lt;br&gt;&quot;</span>,</span>
+<span id="cb32-60"><a href="mapping-static-and-interactive.html#cb32-60" tabindex="-1"></a>      <span class="st">&quot;&lt;b&gt;Species Present:&lt;/b&gt;&lt;br&gt;&quot;</span>, species_html</span>
+<span id="cb32-61"><a href="mapping-static-and-interactive.html#cb32-61" tabindex="-1"></a>    )</span>
+<span id="cb32-62"><a href="mapping-static-and-interactive.html#cb32-62" tabindex="-1"></a>  }) <span class="sc">%&gt;%</span></span>
+<span id="cb32-63"><a href="mapping-static-and-interactive.html#cb32-63" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb32-64"><a href="mapping-static-and-interactive.html#cb32-64" tabindex="-1"></a></span>
+<span id="cb32-65"><a href="mapping-static-and-interactive.html#cb32-65" tabindex="-1"></a><span class="co"># Color palette for All Species</span></span>
+<span id="cb32-66"><a href="mapping-static-and-interactive.html#cb32-66" tabindex="-1"></a>pal_all_species <span class="ot">&lt;-</span> <span class="fu">colorNumeric</span>(</span>
+<span id="cb32-67"><a href="mapping-static-and-interactive.html#cb32-67" tabindex="-1"></a>  <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">&quot;#fee485&quot;</span>, <span class="st">&quot;#ed4801&quot;</span>, <span class="st">&quot;#860a03&quot;</span>, <span class="st">&quot;#221c05&quot;</span>),</span>
+<span id="cb32-68"><a href="mapping-static-and-interactive.html#cb32-68" tabindex="-1"></a>  <span class="at">domain =</span> <span class="fu">range</span>(grid_all_species<span class="sc">$</span>score, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb32-69"><a href="mapping-static-and-interactive.html#cb32-69" tabindex="-1"></a>  <span class="at">na.color =</span> <span class="st">&quot;grey&quot;</span></span>
+<span id="cb32-70"><a href="mapping-static-and-interactive.html#cb32-70" tabindex="-1"></a>)</span></code></pre></div>
 </div>
 <div id="create-leaflet" class="section level3 hasAnchor" number="7.8.4">
 <h3><span class="header-section-number">7.8.4</span> Create Leaflet<a href="mapping-static-and-interactive.html#create-leaflet" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -757,7 +754,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb36-10"><a href="mapping-static-and-interactive.html#cb36-10" tabindex="-1"></a>  <span class="co"># Score for this taxon</span></span>
 <span id="cb36-11"><a href="mapping-static-and-interactive.html#cb36-11" tabindex="-1"></a>  grid_taxon <span class="ot">&lt;-</span> combined <span class="sc">%&gt;%</span></span>
 <span id="cb36-12"><a href="mapping-static-and-interactive.html#cb36-12" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">score =</span> <span class="fu">rowSums</span>(<span class="fu">across</span>(<span class="fu">all_of</span>(taxon_value_cols)), <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb36-13"><a href="mapping-static-and-interactive.html#cb36-13" tabindex="-1"></a>    <span class="fu">filter</span>(score <span class="sc">&gt;</span> <span class="dv">0</span>)  <span class="co"># Drop empty cells</span></span>
+<span id="cb36-13"><a href="mapping-static-and-interactive.html#cb36-13" tabindex="-1"></a>    <span class="fu">filter</span>(score <span class="sc">&gt;</span> <span class="dv">0</span>)  </span>
 <span id="cb36-14"><a href="mapping-static-and-interactive.html#cb36-14" tabindex="-1"></a>  </span>
 <span id="cb36-15"><a href="mapping-static-and-interactive.html#cb36-15" tabindex="-1"></a>  <span class="co"># Popups</span></span>
 <span id="cb36-16"><a href="mapping-static-and-interactive.html#cb36-16" tabindex="-1"></a>  grid_taxon <span class="ot">&lt;-</span> grid_taxon <span class="sc">%&gt;%</span></span>
@@ -825,8 +822,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">7.10</span> Outputs<a href="mapping-static-and-interactive.html#outputs-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The following interactive maps are generated:</p>
 <ul>
-<li><code>interactive_map_all_with_taxa.html</code>:Contains toggleable layers for <strong>All Species</strong> and each key taxon (<code>Mammals</code>, <code>Birds</code>, <code>Reptiles</code>, <code>Amphibians</code>, <code>Vascular Plants</code>). <em>This is a larger file and may take longer to render.</em></li>
-<li><code>interactive_map_all.html</code>: Displays the <strong>All Species Score per km²</strong> map with clickable popups showing the score and species present. <em>This is a lighter map suitable for quick loading.</em></li>
+<li><code>interactive_map_all_with_taxa.html</code>: Contains toggleable layers for <strong>All Species</strong> and each key taxon (<code>Mammals</code>, <code>Birds</code>, <code>Reptiles</code>, <code>Amphibians</code>, <code>Vascular Plants</code>). <em>This is a larger file and may take longer to render.</em></li>
+<li><code>interactive_map_all.html</code>: Displays the <strong>All Species</strong> map with clickable popups showing the score and species present. <em>This is a lighter map suitable for quick loading.</em></li>
 </ul>
 
 </div>

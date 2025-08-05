@@ -71,7 +71,7 @@ outputs-4
 score-calculations-ecotypes
 overview-4
 load-libraries-6
-calculate-ecozone-scores
+calculate-ecotype-scores
 export-data-.csv-1
 outputs-5
 ecozone-and-ecotype-raster-generation

@@ -254,7 +254,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="8.1.1" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#load-libraries-6"><i class="fa fa-check"></i><b>8.1.1</b> Load Libraries</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#calculate-ecozone-scores"><i class="fa fa-check"></i><b>8.2</b> Calculate Ecozone Scores</a></li>
+<li class="chapter" data-level="8.2" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#calculate-ecotype-scores"><i class="fa fa-check"></i><b>8.2</b> Calculate Ecotype Scores</a></li>
 <li class="chapter" data-level="8.3" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#export-data-.csv-1"><i class="fa fa-check"></i><b>8.3</b> Export Data (.csv)</a></li>
 <li class="chapter" data-level="8.4" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#outputs-5"><i class="fa fa-check"></i><b>8.4</b> Outputs</a></li>
 </ul></li>
@@ -417,9 +417,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="export-grid" class="section level2 hasAnchor" number="5.4">
 <h2><span class="header-section-number">5.4</span> Export Grid<a href="create-grid-10-km-x-10-km.html#export-grid" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The grid was saved in multiple formats:
-- RDS file (.rds) for loading within R workflows.
-- Shapefile (.shp) for compatibility with GIS software.</p>
+<p>The grid was saved in multiple formats:</p>
+<ul>
+<li>RDS file (.rds) for loading within R workflows.</li>
+<li>Shapefile (.shp) for compatibility with GIS software.</li>
+</ul>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="create-grid-10-km-x-10-km.html#cb14-1" tabindex="-1"></a><span class="fu">write_rds</span>(grid_10, <span class="st">&quot;outputs/grid/grid_10km_Albers.rds&quot;</span>)</span>
 <span id="cb14-2"><a href="create-grid-10-km-x-10-km.html#cb14-2" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="create-grid-10-km-x-10-km.html#cb14-3" tabindex="-1"></a><span class="fu">st_write</span>(</span>

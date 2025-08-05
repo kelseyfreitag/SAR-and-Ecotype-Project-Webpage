@@ -254,7 +254,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="8.1.1" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#load-libraries-6"><i class="fa fa-check"></i><b>8.1.1</b> Load Libraries</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#calculate-ecozone-scores"><i class="fa fa-check"></i><b>8.2</b> Calculate Ecozone Scores</a></li>
+<li class="chapter" data-level="8.2" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#calculate-ecotype-scores"><i class="fa fa-check"></i><b>8.2</b> Calculate Ecotype Scores</a></li>
 <li class="chapter" data-level="8.3" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#export-data-.csv-1"><i class="fa fa-check"></i><b>8.3</b> Export Data (.csv)</a></li>
 <li class="chapter" data-level="8.4" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#outputs-5"><i class="fa fa-check"></i><b>8.4</b> Outputs</a></li>
 </ul></li>
@@ -356,12 +356,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 \]</span></p>
 <p>Where:</p>
 <ul>
-<li>Project Area: 1 km².</li>
+<li>Project Area: 1 km²</li>
 <li><span class="math inline">\(n\)</span>: 145 (number of unique ecotype-ecozone scores)</li>
 <li>Area of Ecotype in Ecozone: ecotype-specific scores based on area</li>
 </ul>
 <p><strong>Inputs</strong></p>
-<p><code>data/Land cover type by ecozone with names 2025-02 - cleaned.csv</code>: Ecozone and ecotype metadata</p>
+<ul>
+<li><code>data/Land cover type by ecozone with names 2025-02 - cleaned.csv</code>: Ecozone and ecotype metadata</li>
+</ul>
 <div id="load-libraries-6" class="section level3 hasAnchor" number="8.1.1">
 <h3><span class="header-section-number">8.1.1</span> Load Libraries<a href="score-calculations-ecotypes.html#load-libraries-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="score-calculations-ecotypes.html#cb39-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
@@ -369,8 +371,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb39-3"><a href="score-calculations-ecotypes.html#cb39-3" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div>
 </div>
 </div>
-<div id="calculate-ecozone-scores" class="section level2 hasAnchor" number="8.2">
-<h2><span class="header-section-number">8.2</span> Calculate Ecozone Scores<a href="score-calculations-ecotypes.html#calculate-ecozone-scores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="calculate-ecotype-scores" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Calculate Ecotype Scores<a href="score-calculations-ecotypes.html#calculate-ecotype-scores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="score-calculations-ecotypes.html#cb40-1" tabindex="-1"></a><span class="co"># Load in metadata</span></span>
 <span id="cb40-2"><a href="score-calculations-ecotypes.html#cb40-2" tabindex="-1"></a>ecozone_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/Land cover type by ecozone with names 2025-02 - cleaned.csv&quot;</span>)</span>
 <span id="cb40-3"><a href="score-calculations-ecotypes.html#cb40-3" tabindex="-1"></a></span>
@@ -482,7 +484,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="outputs-5" class="section level2 hasAnchor" number="8.4">
 <h2><span class="header-section-number">8.4</span> Outputs<a href="score-calculations-ecotypes.html#outputs-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li><code>Ecotype_Scores_Scaled_Final.csv</code></li>
+<li><code>outputs/Ecotype_Scores_Scaled_Final.csv</code></li>
 </ul>
 
 </div>

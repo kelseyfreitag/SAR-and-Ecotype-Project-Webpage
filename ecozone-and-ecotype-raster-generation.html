@@ -254,7 +254,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="8.1.1" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#load-libraries-6"><i class="fa fa-check"></i><b>8.1.1</b> Load Libraries</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#calculate-ecozone-scores"><i class="fa fa-check"></i><b>8.2</b> Calculate Ecozone Scores</a></li>
+<li class="chapter" data-level="8.2" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#calculate-ecotype-scores"><i class="fa fa-check"></i><b>8.2</b> Calculate Ecotype Scores</a></li>
 <li class="chapter" data-level="8.3" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#export-data-.csv-1"><i class="fa fa-check"></i><b>8.3</b> Export Data (.csv)</a></li>
 <li class="chapter" data-level="8.4" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#outputs-5"><i class="fa fa-check"></i><b>8.4</b> Outputs</a></li>
 </ul></li>
@@ -406,7 +406,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="ecozone-masking-loop" class="section level3 hasAnchor" number="9.2.2">
 <h3><span class="header-section-number">9.2.2</span> Ecozone Masking Loop<a href="ecozone-and-ecotype-raster-generation.html#ecozone-masking-loop" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This loop creates an independent raster for each ecozone, where each ecotype is reclassified to its respective score for that ecozone.</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="ecozone-and-ecotype-raster-generation.html#cb45-1" tabindex="-1"></a><span class="do">## Ecozone Loop</span></span>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="ecozone-and-ecotype-raster-generation.html#cb45-1" tabindex="-1"></a><span class="co"># Ecozone Loop</span></span>
 <span id="cb45-2"><a href="ecozone-and-ecotype-raster-generation.html#cb45-2" tabindex="-1"></a><span class="cf">for</span> (zone <span class="cf">in</span> all_zones) {</span>
 <span id="cb45-3"><a href="ecozone-and-ecotype-raster-generation.html#cb45-3" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Processing:&quot;</span>, zone, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
 <span id="cb45-4"><a href="ecozone-and-ecotype-raster-generation.html#cb45-4" tabindex="-1"></a>  <span class="fu">try</span>({</span>
@@ -441,7 +441,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb45-33"><a href="ecozone-and-ecotype-raster-generation.html#cb45-33" tabindex="-1"></a>    </span>
 <span id="cb45-34"><a href="ecozone-and-ecotype-raster-generation.html#cb45-34" tabindex="-1"></a>    <span class="co"># If no valid scores, skip</span></span>
 <span id="cb45-35"><a href="ecozone-and-ecotype-raster-generation.html#cb45-35" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">nrow</span>(score_lookup_clean) <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb45-36"><a href="ecozone-and-ecotype-raster-generation.html#cb45-36" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">&quot;⚠ No matching ecotype scores for&quot;</span>, zone, <span class="st">&quot;- skipping.</span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span>
+<span id="cb45-36"><a href="ecozone-and-ecotype-raster-generation.html#cb45-36" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">&quot;No matching ecotype scores for&quot;</span>, zone, <span class="st">&quot;- skipping.</span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span>
 <span id="cb45-37"><a href="ecozone-and-ecotype-raster-generation.html#cb45-37" tabindex="-1"></a>      <span class="cf">next</span></span>
 <span id="cb45-38"><a href="ecozone-and-ecotype-raster-generation.html#cb45-38" tabindex="-1"></a>    }</span>
 <span id="cb45-39"><a href="ecozone-and-ecotype-raster-generation.html#cb45-39" tabindex="-1"></a>    </span>
@@ -457,14 +457,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb45-49"><a href="ecozone-and-ecotype-raster-generation.html#cb45-49" tabindex="-1"></a>    tif_path <span class="ot">&lt;-</span> <span class="fu">file.path</span>(output_dir, <span class="fu">paste0</span>(<span class="fu">gsub</span>(<span class="st">&quot; &quot;</span>, <span class="st">&quot;_&quot;</span>, zone), <span class="st">&quot;_score_raster.tif&quot;</span>))</span>
 <span id="cb45-50"><a href="ecozone-and-ecotype-raster-generation.html#cb45-50" tabindex="-1"></a>    <span class="fu">writeRaster</span>(score_raster, <span class="at">filename =</span> tif_path, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb45-51"><a href="ecozone-and-ecotype-raster-generation.html#cb45-51" tabindex="-1"></a>    </span>
-<span id="cb45-52"><a href="ecozone-and-ecotype-raster-generation.html#cb45-52" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">&quot;✔ Finished:&quot;</span>, zone, <span class="st">&quot;</span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span>
+<span id="cb45-52"><a href="ecozone-and-ecotype-raster-generation.html#cb45-52" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">&quot;Finished:&quot;</span>, zone, <span class="st">&quot;</span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span>
 <span id="cb45-53"><a href="ecozone-and-ecotype-raster-generation.html#cb45-53" tabindex="-1"></a>  }, <span class="at">silent =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb45-54"><a href="ecozone-and-ecotype-raster-generation.html#cb45-54" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 </div>
 <div id="outputs-6" class="section level2 hasAnchor" number="9.3">
 <h2><span class="header-section-number">9.3</span> Outputs<a href="ecozone-and-ecotype-raster-generation.html#outputs-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This loop generates <strong>both</strong> an <code>.rds</code> file (for efficient R usage) and a <code>.tif</code> GeoTIFF file (for GIS applications) for <strong>each ecozone</strong>, resulting in <strong>30 raster outputs</strong>. Files are stored in `outputs/ecozone_rasters</p>
+<p>This loop generates <strong>both</strong> an <code>.rds</code> file (for efficient R usage) and a <code>.tif</code> GeoTIFF file (for GIS applications) for <strong>each ecozone</strong>, resulting in <strong>30 raster outputs</strong>. Files are stored in <code>outputs/ecozone_rasters</code></p>
 <ul>
 <li><code>Arctic_Cordillera_score_raster.rds</code> and <code>Arctic_Cordillera_score_raster.tif</code><br />
 </li>
@@ -538,7 +538,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb47-16"><a href="ecozone-and-ecotype-raster-generation.html#cb47-16" tabindex="-1"></a>  <span class="st">&quot;Wetland&quot;</span></span>
 <span id="cb47-17"><a href="ecozone-and-ecotype-raster-generation.html#cb47-17" tabindex="-1"></a>)</span>
 <span id="cb47-18"><a href="ecozone-and-ecotype-raster-generation.html#cb47-18" tabindex="-1"></a></span>
-<span id="cb47-19"><a href="ecozone-and-ecotype-raster-generation.html#cb47-19" tabindex="-1"></a><span class="co"># Tolerance for matching scores</span></span>
+<span id="cb47-19"><a href="ecozone-and-ecotype-raster-generation.html#cb47-19" tabindex="-1"></a><span class="co"># Tolerance for matching scores (ensures scores match if scores were rounded)</span></span>
 <span id="cb47-20"><a href="ecozone-and-ecotype-raster-generation.html#cb47-20" tabindex="-1"></a>tolerance <span class="ot">&lt;-</span> <span class="fl">0.001</span></span></code></pre></div>
 </div>
 <div id="loop-through-ecotypes" class="section level3 hasAnchor" number="9.5.2">

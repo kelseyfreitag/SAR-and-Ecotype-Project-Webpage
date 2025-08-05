@@ -254,7 +254,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="8.1.1" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#load-libraries-6"><i class="fa fa-check"></i><b>8.1.1</b> Load Libraries</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#calculate-ecozone-scores"><i class="fa fa-check"></i><b>8.2</b> Calculate Ecozone Scores</a></li>
+<li class="chapter" data-level="8.2" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#calculate-ecotype-scores"><i class="fa fa-check"></i><b>8.2</b> Calculate Ecotype Scores</a></li>
 <li class="chapter" data-level="8.3" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#export-data-.csv-1"><i class="fa fa-check"></i><b>8.3</b> Export Data (.csv)</a></li>
 <li class="chapter" data-level="8.4" data-path="score-calculations-ecotypes.html"><a href="score-calculations-ecotypes.html#outputs-5"><i class="fa fa-check"></i><b>8.4</b> Outputs</a></li>
 </ul></li>
@@ -349,7 +349,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">12</span> Mapping: Ecozones<a href="mapping-ecozones.html#mapping-ecozones" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="overview-7" class="section level2 hasAnchor" number="12.1">
 <h2><span class="header-section-number">12.1</span> Overview<a href="mapping-ecozones.html#overview-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This section presents individual maps for each of Canada’s 15 ecozones, displaying log‑transformed ecotype scores within their respective boundaries.</p>
+<p>This section creates individual maps for each of Canada’s 15 ecozones, displaying log‑transformed ecotype scores within their respective boundaries.</p>
 <p>Each map displays:</p>
 <ul>
 <li>Log‑transformed ecotype scores.</li>
@@ -373,7 +373,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">12.2</span> Example Code: Arctic Cordillera<a href="mapping-ecozones.html#example-code-arctic-cordillera" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="function-for-pretty-breaks-1" class="section level3 hasAnchor" number="12.2.1">
 <h3><span class="header-section-number">12.2.1</span> Function for Pretty Breaks<a href="mapping-ecozones.html#function-for-pretty-breaks-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="mapping-ecozones.html#cb64-1" tabindex="-1"></a><span class="do">##Function to generate breaks</span></span>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="mapping-ecozones.html#cb64-1" tabindex="-1"></a><span class="co">#Function to generate breaks</span></span>
 <span id="cb64-2"><a href="mapping-ecozones.html#cb64-2" tabindex="-1"></a></span>
 <span id="cb64-3"><a href="mapping-ecozones.html#cb64-3" tabindex="-1"></a>generate_pretty_log_breaks <span class="ot">&lt;-</span> <span class="cf">function</span>(min_val, max_val, <span class="at">n =</span> <span class="dv">5</span>) {</span>
 <span id="cb64-4"><a href="mapping-ecozones.html#cb64-4" tabindex="-1"></a>  <span class="co"># Generate evenly spaced breaks on the log scale</span></span>
@@ -458,7 +458,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="all-ecozones" class="section level2 hasAnchor" number="12.3">
 <h2><span class="header-section-number">12.3</span> All Ecozones<a href="mapping-ecozones.html#all-ecozones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>All ecozone maps were produced following the same workflow as the Arctic Cordillera ecozone. Raw code for each ecozone is avalaible on GitHub.</p>
+<p>All ecozone maps were produced following the same workflow as the Arctic Cordillera ecozone. Raw code for each ecozone is available on GitHub.</p>
 <p><img src="SAR_Project_files/figure-html/plot_ecozone_mapping-1.png" width="672" /><img src="SAR_Project_files/figure-html/plot_ecozone_mapping-2.png" width="672" /><img src="SAR_Project_files/figure-html/plot_ecozone_mapping-3.png" width="672" /><img src="SAR_Project_files/figure-html/plot_ecozone_mapping-4.png" width="672" /><img src="SAR_Project_files/figure-html/plot_ecozone_mapping-5.png" width="672" /><img src="SAR_Project_files/figure-html/plot_ecozone_mapping-6.png" width="672" /><img src="SAR_Project_files/figure-html/plot_ecozone_mapping-7.png" width="672" /><img src="SAR_Project_files/figure-html/plot_ecozone_mapping-8.png" width="672" /><img src="SAR_Project_files/figure-html/plot_ecozone_mapping-9.png" width="672" /><img src="SAR_Project_files/figure-html/plot_ecozone_mapping-10.png" width="672" /><img src="SAR_Project_files/figure-html/plot_ecozone_mapping-11.png" width="672" /><img src="SAR_Project_files/figure-html/plot_ecozone_mapping-12.png" width="672" /><img src="SAR_Project_files/figure-html/plot_ecozone_mapping-13.png" width="672" /><img src="SAR_Project_files/figure-html/plot_ecozone_mapping-14.png" width="672" /></p>
 </div>
 <div id="outputs-10" class="section level2 hasAnchor" number="12.4">
