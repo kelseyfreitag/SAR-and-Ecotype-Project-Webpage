@@ -59,7 +59,7 @@ input-files
 interactive-map-all-species
 load-libraries-5
 read-in-files
-data-preperation
+data-preparation-1
 create-leaflet
 save-leaflet-as-.html
 interactive-map-taxon-toggles
@@ -91,7 +91,7 @@ ecozone-mosaic
 overview-5
 load-libraries-9
 mosaic-loop
-data-preparation-1
+data-preparation-2
 loop-through-and-join-ecozones
 log-scores
 export-data-.csv-2

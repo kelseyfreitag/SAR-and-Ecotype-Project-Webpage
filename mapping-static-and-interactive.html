@@ -235,7 +235,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="7.8.1" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#load-libraries-5"><i class="fa fa-check"></i><b>7.8.1</b> Load Libraries</a></li>
 <li class="chapter" data-level="7.8.2" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#read-in-files"><i class="fa fa-check"></i><b>7.8.2</b> Read in Files</a></li>
-<li class="chapter" data-level="7.8.3" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#data-preperation"><i class="fa fa-check"></i><b>7.8.3</b> Data Preperation</a></li>
+<li class="chapter" data-level="7.8.3" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#data-preparation-1"><i class="fa fa-check"></i><b>7.8.3</b> Data Preparation</a></li>
 <li class="chapter" data-level="7.8.4" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#create-leaflet"><i class="fa fa-check"></i><b>7.8.4</b> Create Leaflet</a></li>
 <li class="chapter" data-level="7.8.5" data-path="mapping-static-and-interactive.html"><a href="mapping-static-and-interactive.html#save-leaflet-as-.html"><i class="fa fa-check"></i><b>7.8.5</b> Save Leaflet as .html</a></li>
 </ul></li>
@@ -289,7 +289,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="10.2" data-path="ecozone-mosaic.html"><a href="ecozone-mosaic.html#mosaic-loop"><i class="fa fa-check"></i><b>10.2</b> Mosaic Loop</a>
 <ul>
-<li class="chapter" data-level="10.2.1" data-path="ecozone-mosaic.html"><a href="ecozone-mosaic.html#data-preparation-1"><i class="fa fa-check"></i><b>10.2.1</b> Data Preparation</a></li>
+<li class="chapter" data-level="10.2.1" data-path="ecozone-mosaic.html"><a href="ecozone-mosaic.html#data-preparation-2"><i class="fa fa-check"></i><b>10.2.1</b> Data Preparation</a></li>
 <li class="chapter" data-level="10.2.2" data-path="ecozone-mosaic.html"><a href="ecozone-mosaic.html#loop-through-and-join-ecozones"><i class="fa fa-check"></i><b>10.2.2</b> Loop Through and Join Ecozones</a></li>
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="ecozone-mosaic.html"><a href="ecozone-mosaic.html#log-scores"><i class="fa fa-check"></i><b>10.3</b> Log Scores</a></li>
@@ -637,8 +637,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb31-2"><a href="mapping-static-and-interactive.html#cb31-2" tabindex="-1"></a>combined <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data/output_grid_sf_score.rds&quot;</span>)</span>
 <span id="cb31-3"><a href="mapping-static-and-interactive.html#cb31-3" tabindex="-1"></a>species_master <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/Master_list_SAR.csv&quot;</span>)</span></code></pre></div>
 </div>
-<div id="data-preperation" class="section level3 hasAnchor" number="7.8.3">
-<h3><span class="header-section-number">7.8.3</span> Data Preperation<a href="mapping-static-and-interactive.html#data-preperation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="data-preparation-1" class="section level3 hasAnchor" number="7.8.3">
+<h3><span class="header-section-number">7.8.3</span> Data Preparation<a href="mapping-static-and-interactive.html#data-preparation-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="mapping-static-and-interactive.html#cb32-1" tabindex="-1"></a><span class="co"># Reproject to lat/long for leaflet</span></span>
 <span id="cb32-2"><a href="mapping-static-and-interactive.html#cb32-2" tabindex="-1"></a>combined <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(combined, <span class="at">crs =</span> <span class="dv">4326</span>)</span>
 <span id="cb32-3"><a href="mapping-static-and-interactive.html#cb32-3" tabindex="-1"></a></span>
@@ -736,11 +736,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="interactive-map-taxon-toggles" class="section level2 hasAnchor" number="7.9">
 <h2><span class="header-section-number">7.9</span> Interactive Map: Taxon Toggles<a href="mapping-static-and-interactive.html#interactive-map-taxon-toggles" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This leaflet has toggles for the varying taxa that can be turned off and on. This</p>
+<p>This leaflet has toggles for the varying taxa that can be turned off and on.</p>
 <p>Important Note: When toggling on layers, the top layer takes priority. Toggled on maps can not be combined, it is purely for comparison sake.</p>
 <div id="define-taxa-of-interest" class="section level3 hasAnchor" number="7.9.1">
 <h3><span class="header-section-number">7.9.1</span> Define Taxa of Interest<a href="mapping-static-and-interactive.html#define-taxa-of-interest" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Only using the more common taxa of interest on these maps for user experience as too many would make it unusable computing wise.</p>
+<p>To improve performance, only the most common taxa of interest are shown on these maps. Including all taxa would make the map too slow and difficult to use.</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="mapping-static-and-interactive.html#cb35-1" tabindex="-1"></a>taxon_types <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Mammals&quot;</span>, <span class="st">&quot;Birds&quot;</span>, <span class="st">&quot;Reptiles&quot;</span>, <span class="st">&quot;Amphibians&quot;</span>, <span class="st">&quot;Vascular Plants&quot;</span>)</span></code></pre></div>
 </div>
 <div id="loop-through-taxa" class="section level3 hasAnchor" number="7.9.2">
